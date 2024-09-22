@@ -11,7 +11,25 @@ df = pd.read_csv ('https://healthdata.gov/resource/xs6e-ics5.csv')
 print(df)
 
 # Step 4: Query the table to verify the data
-query = 'SELECT * FROM users'
+ query = 'SELECT' *
+FROM data
+ORDER BY "Total Page Views" DESC
+LIMIT 5;
+result_df = pd.read_sql(query, conn)
+
+query = 'SELECT' *
+FROM data
+WHERE Agency = 'NIH' AND "Total Page Views" > 5000000;
+result_df = pd.read_sql(query, conn)
+
+query ='SELECT' Agency, COUNT(*) AS "Website Count"
+FROM data
+GROUP BY Agency;
+result_df = pd.read_sql(query, conn)
+
+query = 'SELECT' *
+FROM data
+WHERE "Page Title" LIKE '%PubMed%';
 result_df = pd.read_sql(query, conn)
 
 # Step 5: Display the result
